@@ -8,10 +8,7 @@ int LinearSearch(int SearchArray[100],int SearchNum,int length)//function for li
 	int found=0;        // to show number is found or not
 	int idx;
 	int comparisons=0; //to get number of comparisons
-	//clock_t t;
-	
-	//t=clock();
-		
+			
 	for(idx=0;idx<length;idx++)
 	{
 		if(SearchArray[idx]==SearchNum)
@@ -23,12 +20,11 @@ int LinearSearch(int SearchArray[100],int SearchNum,int length)//function for li
 		 
 	comparisons++;
 		
-	}
+	}	
 	
-	//t=clock()-t;
 	printf("Total number of elements in the array= %d\n",length);    
 	printf("No. of comparisons= %d\n",comparisons);
-	//printf("Time taken to arrive at conclusion:%f seconds\n",((float)t*1000)/CLOCKS_PER_SEC);
+	
 	return found;
 	
 }
