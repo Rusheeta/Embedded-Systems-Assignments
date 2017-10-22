@@ -13,6 +13,7 @@ typedef struct node
     NODE  *scanPtr= NULL ; /*pointer to traverse from the start to end of the linked list*/
     NODE  *nodePtr= NULL ; /*pointer to point to newly created node of the linked list*/
     NODE  *dispPtr=NULL;   /*pointer to tranverse and display the list*/
+    NODE  *searchPtr=NULL; /*pointer to traverse and search for data in the list*/
     
     int DisplayMenu()
     {
@@ -88,11 +89,40 @@ typedef struct node
 	
 	void SearchList()
 	{
+		int searchData; /*Data to be searched*/
 		
-	}
-	
-	
-	
+		printf("Enter data to be searched from the list: ");
+		scanf("%d",&searchData);
+		
+		searchPtr=head;
+				
+		while(searchPtr!=NULL)
+		{			
+			if(searchPtr->data==searchData)
+			{
+				printf("%d is found in the list.\n",searchData);
+				break;
+			}
+			else 
+			{
+				if(searchPtr->data!=searchData)
+				{
+					if(searchPtr->next==NULL )
+					{
+						printf("%d is not found in the list.\n",searchData);
+			    		break;
+						
+					}			    	    
+			    	else 
+			        {
+						searchPtr=searchPtr->next;
+			    	}
+				}
+				 				   
+			}
+					
+		}
+	}	
 	
     
     int main()
@@ -117,8 +147,8 @@ typedef struct node
                 }
                 case 3:
                 {
-                     DeleteNode();
-                     break ;
+                    DeleteNode();
+                    break ;
                 }
                 case 4:
                 {
@@ -127,8 +157,8 @@ typedef struct node
                 }
                 case 5:
                 {
-                     DeleteList() ; /* traverse through the list and remove each element by element */
-                     break ;
+                    DeleteList() ; /* traverse through the list and remove each element by element */
+                    break ;
                 }
                 case 6:
                 {
