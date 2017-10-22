@@ -7,16 +7,18 @@ typedef struct node
        struct node *next ;
     } NODE ;
     
-    /* Declare head of the list as a Global Variable */
+    /* Declare pointers of the list as a Global Variable */
+    
     NODE  *head= NULL ;    /*pointer to point to the start of the linked list*/
     NODE  *scanPtr= NULL ; /*pointer to traverse from the start to end of the linked list*/
     NODE  *nodePtr= NULL ; /*pointer to point to newly created node of the linked list*/
+    NODE  *dispPtr=NULL;   /*pointer to tranverse and display the list*/
     
     int DisplayMenu()
     {
     	int option;
     	
-    	printf("Menu:\n");
+    	printf("\nMenu:\n");
     	printf("1.Create List\n");
     	printf("2.Insert Node\n");
     	printf("3.Delete Node\n");
@@ -69,7 +71,14 @@ typedef struct node
 	
 	void DisplayList()
 	{
+		dispPtr=head;
 		
+		printf("List: ");		
+		while(dispPtr!=NULL)
+		{
+			printf("%d ",dispPtr->data);
+			dispPtr=dispPtr->next;
+		}
 	}
 	
 	void DeleteList()
@@ -118,7 +127,7 @@ typedef struct node
                 }
                 case 5:
                 {
-                     DeleteList() ; /* travese through the list and remove each element by element */
+                     DeleteList() ; /* traverse through the list and remove each element by element */
                      break ;
                 }
                 case 6:
