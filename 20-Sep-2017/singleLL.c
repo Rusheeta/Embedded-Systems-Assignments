@@ -14,8 +14,9 @@ typedef struct node
     NODE  *nodePtr= NULL ; /*pointer to point to newly created node of the linked list*/
     NODE  *dispPtr=NULL;   /*pointer to tranverse and display the list*/
     NODE  *searchPtr=NULL; /*pointer to traverse and search for data in the list*/
+    NODE  *newNodePtr= NULL ;
     
-    int DisplayMenu()
+	int DisplayMenu()
     {
     	int option;
     	
@@ -36,10 +37,9 @@ typedef struct node
 	
     void CreateList()
     {
-    	char wait[10];
     	int info;    
     	
-		printf("Enter data to be store in a list: \n");
+		printf("Enter data to be stored in a list: \n");
     	scanf("%d",&info);
     	
     	nodePtr=(NODE*)malloc(sizeof(NODE)); /*new node is created pointer by nodePtr*/
@@ -62,7 +62,41 @@ typedef struct node
 	
 	void InsertNode()
 	{
+		int newData;    
+		int info;
 		
+		printf("Enter data to be stored in the new node: \n");
+    	scanf("%d",&newData);
+    	
+    	newNodePtr=(NODE*)malloc(sizeof(NODE)); /*new node is created by newNodePtr*/
+    	newNodePtr->data=newData;
+    	newNodePtr->next=NULL;
+    	
+    	printf("Enter data after which new node is to be inserted or enter data in the first node to insert before first node: ");
+    	scanf("%d",&info);
+    	
+    	scanPtr=head;
+    	
+    	if(head->data!=info)
+    	{
+    		while(scanPtr!=NULL)
+    	    {
+    		    if(scanPtr->data==info)
+    		    {
+    				newNodePtr->next=scanPtr->next;
+    				scanPtr->next=newNodePtr;
+    				break;
+				}						
+				scanPtr=scanPtr->next;
+		    }    		
+		}
+		else
+		{
+			newNodePtr->next=scanPtr;
+			head=newNodePtr;			
+		}
+    	
+    	
 	}
 	
 	void DeleteNode()
