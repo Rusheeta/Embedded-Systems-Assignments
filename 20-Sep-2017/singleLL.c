@@ -12,7 +12,7 @@ typedef struct node
     NODE  *head= NULL ;    /*pointer to point to the start of the linked list*/
     NODE  *scanPtr= NULL ; /*pointer to traverse from the start to end of the linked list*/
     NODE  *nodePtr= NULL ; /*pointer to point to newly created node of the linked list*/
-    NODE  *dispPtr=NULL;   /*pointer to tranverse and display the list*/
+    NODE  *dispPtr=NULL;   /*pointer to traverse and display the list*/
     NODE  *searchPtr=NULL; /*pointer to traverse and search for data in the list*/
     NODE  *newNodePtr= NULL ;
     
