@@ -14,7 +14,7 @@ typedef struct node
     NODE  *nodePtr= NULL ; /*pointer to point to newly created node of the linked list*/
     NODE  *dispPtr=NULL;   /*pointer to traverse and display the list*/
     NODE  *searchPtr=NULL; /*pointer to traverse and search for data in the list*/
-    
+    NODE  *newNodePtr= NULL ;/*pointer to point to the new node created to insert into the list*/
     
 	int DisplayMenu()
     {
@@ -62,7 +62,38 @@ typedef struct node
 	
 	void InsertNode()
 	{
-	
+		int newData;    
+		int info;
+		
+		if(head!=NULL)
+		{
+			printf("Enter data to be stored in the new node: \n");
+    		scanf("%d",&newData);
+    	
+    		newNodePtr=(NODE*)malloc(sizeof(NODE)); /*new node is created by newNodePtr*/
+    		newNodePtr->data=newData;
+    		newNodePtr->next=NULL;
+    	
+    		printf("Enter data after which new node is to be inserted: ");
+    		scanf("%d",&info);
+    	
+    		scanPtr=head;
+    	
+    		while(scanPtr!=NULL)
+        	{	
+    	    	if(scanPtr->data==info)
+				{
+					newNodePtr->next=scanPtr->next;
+					scanPtr->next=newNodePtr;
+    				break;
+				}	
+				scanPtr=scanPtr->next;
+	    	}    		
+		}
+		else
+		{
+			printf("Insertion not possible: List is empty\n");
+		}    		
 	}
 	
 	void DeleteNode()
