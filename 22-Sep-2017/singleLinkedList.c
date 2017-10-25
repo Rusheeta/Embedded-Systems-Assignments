@@ -158,8 +158,20 @@ typedef struct node
 	
 	void DeleteList()
 	{
-		
-	
+		if(head!=NULL)
+		{
+			scanPtr=head;
+			while(scanPtr!=NULL)
+			{
+				head=scanPtr->next;
+				free(scanPtr);
+				scanPtr=head;			
+			}
+		}
+		else
+		{
+			printf("Deleting list is not possible: List is Empty\n");
+		}	
 	}
 	
 	void SearchList()
