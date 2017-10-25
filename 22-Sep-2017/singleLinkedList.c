@@ -12,7 +12,7 @@ typedef struct node
     NODE  *head= NULL ;    /*pointer to point to the start of the linked list*/
     NODE  *scanPtr= NULL ; /*pointer to traverse from the start to end of the linked list*/
     NODE  *nodePtr= NULL ; /*pointer to point to newly created node of the linked list*/
-    
+    NODE  *dispPtr=NULL;   /*pointer to traverse and display the list*/
     
 	int DisplayMenu()
     {
@@ -70,7 +70,21 @@ typedef struct node
 	
 	void DisplayList()
 	{
-		printf("List is Empty\n");
+		dispPtr=head;		
+			
+		if(dispPtr!=NULL)
+		{
+			printf("List: ");
+			while(dispPtr!=NULL)
+			{
+				printf("%d ",dispPtr->data);
+				dispPtr=dispPtr->next;
+			}
+		}	
+		else
+		{
+			printf("List is Empty\n");
+		}
 	}
 	
 	void DeleteList()
