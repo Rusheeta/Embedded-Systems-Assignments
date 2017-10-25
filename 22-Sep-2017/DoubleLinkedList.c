@@ -16,7 +16,8 @@ typedef struct node
     NODE  *nodePtr= NULL ; /*pointer to point to newly created node of the linked list*/
     NODE  *dispFwdPtr=NULL;/*pointer to traverse forward and display the list in the forward direction*/
     NODE  *dispRevPtr=NULL;/*pointer to traverse reverse and display the list in the reverse direction*/
-    
+    NODE  *searchPtr=NULL; /*pointer to traverse and search for data in the list*/
+     
     int DisplayMenu()
     {
     	int option;
@@ -122,7 +123,44 @@ typedef struct node
 	
 	void SearchList()
 	{
+		int searchData; /*Data to be searched*/
 		
+		
+		searchPtr=head;
+		if(searchPtr!=NULL)
+		{
+			printf("Enter data to be searched from the list: ");
+			scanf("%d",&searchData);
+		
+			
+			while(searchPtr!=NULL)
+		    {			
+				if(searchPtr->data==searchData)
+				{
+					printf("%d is found in the list.\n",searchData);
+					break;
+				}
+				else 
+				{
+					if(searchPtr->data!=searchData)
+					{
+						if(searchPtr->right==NULL )
+						{
+							printf("%d is not found in the list.\n",searchData);
+			    			break;
+						}			    	    
+				    	else 
+				        {
+							searchPtr=searchPtr->right;
+			    		}
+					}				 				   
+				}
+			}
+		}
+		else
+		{
+			printf("Searching is not valid: List is Empty\n");
+		}		
 	}
 	
 	
