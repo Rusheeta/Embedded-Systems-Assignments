@@ -14,7 +14,7 @@ typedef struct node
     NODE  *tail= NULL ;    /*pointer to point to the end of the linked list*/
     NODE  *scanPtr= NULL ; /*pointer to traverse from the start to end of the linked list*/
     NODE  *nodePtr= NULL ; /*pointer to point to newly created node of the linked list*/
-    
+    NODE  *dispFwdPtr=NULL;/*pointer to traverse forward and display the list in the forward direction*/
     
     int DisplayMenu()
     {
@@ -78,7 +78,21 @@ typedef struct node
 	
 	void DisplayForward()
 	{
-	
+		dispFwdPtr=head;		
+			
+		if(dispFwdPtr!=NULL)
+		{
+			printf("List: ");
+			while(dispFwdPtr!=NULL)
+			{
+				printf("%d ",dispFwdPtr->data);
+				dispFwdPtr=dispFwdPtr->right;
+			}
+		}	
+		else
+		{
+			printf("List is Empty\n");
+		}	
 	}
 	
 	void DisplayReverse()
