@@ -9,8 +9,9 @@ typedef struct node
     
     /* Declare pointers of the list as a Global Variable */
     
-    NODE  *head= NULL ;   
-    NODE  *scanPtr= NULL ; 
+    NODE  *head= NULL ;    /*pointer to point to the start of the linked list*/
+    NODE  *scanPtr= NULL ; /*pointer to traverse from the start to end of the linked list*/
+    NODE  *nodePtr= NULL ; /*pointer to point to newly created node of the linked list*/
     
     
 	int DisplayMenu()
@@ -34,7 +35,27 @@ typedef struct node
 	
     void CreateList()
     {
-    				    	
+    	int info;    
+    	
+		printf("Enter data to be stored in a list: \n");
+    	scanf("%d",&info);
+    	
+    	nodePtr=(NODE*)malloc(sizeof(NODE)); /*new node is created pointer by nodePtr*/
+    	
+        if(head==NULL)
+        {
+    	    head=nodePtr;  /*Mark the beginning of the node*/
+    	    scanPtr=nodePtr; 
+    	    nodePtr->next=NULL;
+	   	}
+        else
+        {
+        	scanPtr->next=nodePtr; /*Link the previous node's next pointer to the newly created node*/
+    		scanPtr=nodePtr; /*Make scanPtr point to the newly created node*/
+    		nodePtr->next=NULL; /*setting next pointer to NULL after creating a new node in case this is the last node in the list*/
+		}
+		
+		nodePtr->data=info;	    				    	
 	}
 	
 	void InsertNode()
