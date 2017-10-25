@@ -92,13 +92,49 @@ typedef struct node
 		}
 		else
 		{
-			printf("Insertion not possible: List is empty\n");
+			printf("Insertion is not possible: List is empty\n");
 		}    		
 	}
 	
 	void DeleteNode()
-	{		
-		
+	{
+		int delInfo;
+						   	
+     	if(head!=NULL)
+		{
+			printf("Enter data whose node is to be deleted : ");
+    	  	scanf("%d",&delInfo);
+    	
+    		scanPtr=head;
+    		searchPtr=scanPtr->next;
+    	
+    	
+    		if(head->data==delInfo)
+    		{
+    			head=scanPtr->next;
+    			free(scanPtr);
+    			scanPtr=NULL;
+	   		}
+			else
+			{
+				while(searchPtr!=NULL)
+    	    	{
+    				if(searchPtr->data==delInfo)
+    				{
+    					scanPtr->next=searchPtr->next;
+    					free(searchPtr);
+    					searchPtr=NULL;
+    					break;
+					}
+					searchPtr=searchPtr->next;
+					scanPtr=scanPtr->next;
+				}			
+			}    	
+		}
+		else
+		{
+			printf("Deletion is not possible: List is empty\n");
+		}    	
 	}
 	
 	void DisplayList()
@@ -122,6 +158,7 @@ typedef struct node
 	
 	void DeleteList()
 	{
+		
 	
 	}
 	
