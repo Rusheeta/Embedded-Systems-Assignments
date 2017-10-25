@@ -17,7 +17,9 @@ typedef struct node
     NODE  *dispFwdPtr=NULL;/*pointer to traverse forward and display the list in the forward direction*/
     NODE  *dispRevPtr=NULL;/*pointer to traverse reverse and display the list in the reverse direction*/
     NODE  *searchPtr=NULL; /*pointer to traverse and search for data in the list*/
-     
+    NODE  *newNodePtr= NULL ;/*pointer to point to the new node created to insert into the list*/
+	NODE  *scanNextPtr=NULL ;/*Pointer to point to next node of scanPtr pointing node*/
+	 
     int DisplayMenu()
     {
     	int option;
@@ -70,7 +72,43 @@ typedef struct node
 	
 	void InsertNode()
 	{
+		int newData;    
+		int info;
 		
+		if(head!=NULL)
+		{
+			printf("Enter data to be stored in the new node: \n");
+    		scanf("%d",&newData);
+    	
+    		newNodePtr=(NODE*)malloc(sizeof(NODE)); /*new node is created by newNodePtr*/
+    		newNodePtr->data=newData;
+    		newNodePtr->right=NULL;
+    		newNodePtr->left=NULL;
+    	
+    		printf("Enter data after which new node is to be inserted: ");
+    		scanf("%d",&info);
+    	
+    		scanPtr=head;
+    		scanNextPtr=scanPtr->right;
+    		
+    		while(scanPtr!=NULL)
+        	{	
+    	    	if(scanPtr->data==info)
+				{
+					newNodePtr->right=scanNextPtr;
+					scanNextPtr->left=newNodePtr;
+					scanPtr->right=newNodePtr;
+					newNodePtr->left=scanPtr;
+    				break;
+				}	
+				scanPtr=scanPtr->right;
+				scanNextPtr=scanPtr->right;
+	    	}    		
+		}
+		else
+		{
+			printf("Insertion is not possible: List is empty\n");
+		}    		
 	}
 	
 	void DeleteNode()
