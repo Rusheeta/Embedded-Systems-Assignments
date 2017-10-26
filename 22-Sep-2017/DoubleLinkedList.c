@@ -113,7 +113,74 @@ typedef struct node
 	
 	void DeleteNode()
 	{
+		int delInfo;
 		
+        if(head!=NULL)
+        {
+        	printf("Enter data whose node is to be deleted : ");
+			scanf("%d",&delInfo);
+			
+			
+    		
+    	    if(head->data==delInfo)
+			{
+				scanPtr=head;
+				if(head==tail)
+				{
+					free(scanPtr);
+    				head=NULL;
+    				tail=NULL;
+    				scanPtr=NULL;
+				}
+				else
+				{
+					head=scanPtr->right;
+					head->left=NULL;
+					scanPtr->right=NULL;
+					free(scanPtr);
+					scanPtr=tail;
+				}
+				
+			}	
+				    	
+    		else if(tail->data==delInfo)
+    		{
+    			scanPtr=tail;
+				tail=tail->left;
+				tail->right=NULL;
+				scanPtr->left=NULL;
+				free(scanPtr);
+				scanPtr=tail;						
+			}
+			else
+			{
+				scanPtr=head;
+				searchPtr=scanPtr->right;
+    		    scanNextPtr=searchPtr->right;
+    		
+				while(searchPtr!=NULL)
+				{
+					if(searchPtr->data==delInfo)
+					{
+						scanPtr->right=searchPtr->right;
+						scanNextPtr->left=searchPtr->left;
+						scanPtr=tail;
+						searchPtr->left=NULL;
+						searchPtr->right=NULL;
+						free(searchPtr);
+						searchPtr=NULL;
+						break;
+					}
+					scanPtr=scanPtr->right;
+					searchPtr=searchPtr->right;
+					scanNextPtr=scanNextPtr->right;
+				}
+			}	
+		}
+		else
+		{
+			printf("Deletion not possible: List is empty\n");
+		}    	
 	}
 	
 	void DisplayForward()
