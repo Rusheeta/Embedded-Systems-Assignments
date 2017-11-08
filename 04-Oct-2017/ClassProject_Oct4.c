@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<string.h>
 #include<malloc.h>
+#include <stdlib.h>
+#include <errno.h>
 
 typedef struct usage
 {
@@ -105,6 +107,7 @@ struct classified
 {
 	int bracket[20];
 	int numberOfUsers[20];
+	
 }USER;
 	
 void calculatePercentage()
@@ -149,6 +152,7 @@ void bracketOfUsers()
 void main(int argc, char **argv)
 {
 	FILE *csvPtr;
+	FILE *csvWritePtr;
 	char csvFile[20];
 	int flag;
 	int index;
@@ -157,6 +161,8 @@ void main(int argc, char **argv)
     char check[500];	
     int parseFlag;
     int tokenNo;
+    char fileName[20];
+    
     
 	if(argc>1)
 	{
@@ -206,9 +212,7 @@ void main(int argc, char **argv)
 
         while(parseFlag)
         {
-            record = strtok(NULL,","); 
-           // printf(" %d  token = %s \n ",tokenNo, record);
-            
+            record = strtok(NULL,",");             
          
             if (record == NULL)
             {
@@ -248,4 +252,29 @@ void main(int argc, char **argv)
    findMaxUsage();  /*to find the customer with highest or maximum usage*/
    calculatePercentage(); /*to calculate the percentage brackets*/
    bracketOfUsers();      /*to display number of users in each bracket*/
+   
+   /*Create a new csv file and store the above obtained result*/
+   
+   printf("Enter the filename to be created to store the no. of users:");
+   scanf("%s",&fileName);
+   
+   csvWritePtr=fopen(fileName,"w");
+   
+   if (csvWritePtr == NULL)
+   {
+   		printf("File open error with %s \n",fileName);
+      	printf("Error number returned = %d \n", errno);
+      	printf("%s\n",strerror(errno));
+      	exit(0);
+   }
+  
+     
+   fprintf(csvWritePtr,"percentage bracket,Number of users\n");
+   
+   for(index=0;index<10;index++)
+   {
+   		fprintf(csvWritePtr,"%d,%d\n",USER.bracket[index],USER.numberOfUsers[index]);
+   }
+   
+   fclose(csvWritePtr);
 }
