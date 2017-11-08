@@ -15,6 +15,11 @@ DATA  *head= NULL ;    /*pointer to point to the start of the linked list*/
 DATA  *nodePtr= NULL ; /*pointer to point to newly created node of the linked list*/
 DATA  *scanPtr= NULL ; /*pointer to traverse from the start to end of the linked list*/
 DATA  *dispPtr=NULL;   /*pointer to traverse and display the list*/
+DATA  *maxPtr=NULL; /*pointer to traverse and find the max usage in the list*/
+
+int max; /*to store maximum usage of all*/
+
+
  
 void CreateList()
     {
@@ -63,6 +68,84 @@ void DisplayList()
 	}
 }
 
+void findMaxUsage()
+{
+	
+	int temp;
+	maxPtr=head;
+	temp=maxPtr->usage;
+	maxPtr=maxPtr->next;
+	while(maxPtr!=NULL)
+	{
+		if(temp>=maxPtr->usage)
+	    {
+			max=temp;
+			maxPtr=maxPtr->next;
+		}
+		else
+		{
+			temp=maxPtr->usage;
+			maxPtr=maxPtr->next;
+		}
+	}
+	max=temp;
+	scanPtr=head;
+	while(scanPtr!=NULL)
+	{
+		if(max==scanPtr->usage)
+		{
+			printf("Customer '%s' has the maximum usage=%d\n",scanPtr->name,max);
+		}
+		
+		scanPtr=scanPtr->next;
+	}
+}
+
+struct classified
+{
+	int bracket[20];
+	int numberOfUsers[20];
+}USER;
+	
+void calculatePercentage()
+{
+	int index;
+	int i;
+				
+	for(index=0,i=10;index<10,i>0;index++,i--)
+	{
+		USER.bracket[index]=(max*10)*i/100;
+		printf("%d ",USER.bracket[index]);
+	}
+	printf("\n");		
+}
+
+void bracketOfUsers()
+{
+	int count;/*to count the number of users within each bracket*/
+	int idx;
+	int i;	
+	
+	for(idx=0,i=10;idx<10,i>0;idx++,i--)
+	{
+		count=0;
+		scanPtr=head;
+		
+		while(scanPtr!=NULL)
+		{
+			if(scanPtr->usage<=USER.bracket[idx] && scanPtr->usage>USER.bracket[idx+1])
+			{
+				count=count+1;
+			}
+		
+			scanPtr=scanPtr->next;
+		}
+		USER.numberOfUsers[idx]=count;
+	
+		printf("No of users in the bracket of '%dpercent'= %d\n",i*10,USER.numberOfUsers[idx]);
+	}
+
+}
 void main(int argc, char **argv)
 {
 	FILE *csvPtr;
@@ -100,7 +183,7 @@ void main(int argc, char **argv)
 	index=0;
 	
 	fgets(buffer,200,csvPtr);
-	
+	printf("%s",buffer);
 		
 
     while(flag)
@@ -160,5 +243,9 @@ void main(int argc, char **argv)
 	    }
    }
    fclose(csvPtr);
-   DisplayList();
+   
+   DisplayList();   /*to display the linked list created*/
+   findMaxUsage();  /*to find the customer with highest or maximum usage*/
+   calculatePercentage(); /*to calculate the percentage brackets*/
+   bracketOfUsers();      /*to display number of users in each bracket*/
 }
