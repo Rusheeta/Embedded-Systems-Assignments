@@ -105,6 +105,7 @@ void findMaxUsage()
 
 struct classified
 {
+	int percentArray[20];
 	int bracket[20];
 	int numberOfUsers[20];
 	
@@ -115,10 +116,11 @@ void calculatePercentage()
 	int index;
 	int i;
 				
-	for(index=0,i=10;index<10,i>0;index++,i--)
+	for(index=0,i=1;index<10,i<=10;index++,i++)
 	{
-		USER.bracket[index]=(max*10)*i/100;
-		printf("%d ",USER.bracket[index]);
+		USER.percentArray[index]=(max*10)*i/100;
+		USER.bracket[index]=10*i;
+		printf("%d ",USER.percentArray[index]);
 	}
 	printf("\n");		
 }
@@ -129,14 +131,14 @@ void bracketOfUsers()
 	int idx;
 	int i;	
 	
-	for(idx=0,i=10;idx<10,i>0;idx++,i--)
+	for(idx=0,i=1;idx<10,i<=10;idx++,i++)
 	{
 		count=0;
 		scanPtr=head;
 		
 		while(scanPtr!=NULL)
 		{
-			if(scanPtr->usage<=USER.bracket[idx] && scanPtr->usage>USER.bracket[idx+1])
+			if(scanPtr->usage<=USER.percentArray[idx] && scanPtr->usage>USER.percentArray[idx-1])
 			{
 				count=count+1;
 			}
@@ -269,11 +271,11 @@ void main(int argc, char **argv)
    }
   
      
-   fprintf(csvWritePtr,"percentage bracket,Number of users\n");
+   fprintf(csvWritePtr,"Percentage Bracket,Number of users\n");
    
    for(index=0;index<10;index++)
    {
-   		fprintf(csvWritePtr,"%d,%d\n",USER.bracket[index],USER.numberOfUsers[index]);
+   		fprintf(csvWritePtr,"%d%%,%d\n",USER.bracket[index],USER.numberOfUsers[index]);
    }
    
    fclose(csvWritePtr);
