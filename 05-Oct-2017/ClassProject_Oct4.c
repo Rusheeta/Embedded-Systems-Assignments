@@ -387,7 +387,7 @@ void writeBilling() //for reference writing the final billing to a .csv file
    
    	while(scanPtr!=NULL)
    	{
-   		fprintf(billWritePtr,"%s,%d,%d,%d,%f\n",scanPtr->name,scanPtr->age,scanPtr->usage,scanPtr->planID,scanPtr->monthlyCharges);   	
+   		fprintf(billWritePtr,"%s,%d,%d,%d,%0.2f\n",scanPtr->name,scanPtr->age,scanPtr->usage,scanPtr->planID,scanPtr->monthlyCharges);   	
    	    scanPtr=scanPtr->next;
    	}
    
