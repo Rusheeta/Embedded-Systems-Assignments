@@ -346,9 +346,9 @@ main()
 13.Double data type should be used to get accurate value while calculating the flight path.
 
 14.Advantages of linked lists over arrays:
-	1)Insertion/deletion is easy.
-	2)Dynamic size.
-	3)Linked list can hold different data types.    
+	1) Insertion/deletion is easy.
+	2) Dynamic size.
+	3) Linked list can hold different data types.    
 
 15.Actual parameters: Parameters which appear in the function calls.
    Formal Parameters: Parameters which appear in the function declarations.
