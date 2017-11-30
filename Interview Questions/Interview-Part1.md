@@ -209,12 +209,12 @@ First parameter is the name of the file to be opened and second parameter is the
 
 Different modes in fopen API:
 
-"r"- to read the file and the file must exist.
-"w"- creates a new file to write but if the file already exist then its contents are erased and it becomes empty to write into      it.
-"a"-appends to the existing file or creates new file to write if it doesnot exist.
-"r+"-opens the file to read and also write, file must exist.
-"w+"- creates a new file to write as well as read.
-"a+"-opens a file to read and append to the file
+*"r"- to read the file and the file must exist.
+*"w"- creates a new file to write but if the file already exist then its contents are erased and it becomes empty to write into      it.
+*"a"-appends to the existing file or creates new file to write if it doesnot exist.
+*"r+"-opens the file to read and also write, file must exist.
+*"w+"- creates a new file to write as well as read.
+*"a+"-opens a file to read and append to the file
 
 4.Enumeration is the user defined data type which consists of integral constants. It is use to assign names to integral constants.
 ````
