@@ -209,12 +209,12 @@ First parameter is the name of the file to be opened and second parameter is the
 
 Different modes in fopen API:
 
-*"r"- to read the file and the file must exist.
-*"w"- creates a new file to write but if the file already exist then its contents are erased and it becomes empty to write into      it.
-*"a"-appends to the existing file or creates new file to write if it doesnot exist.
-*"r+"-opens the file to read and also write, file must exist.
-*"w+"- creates a new file to write as well as read.
-*"a+"-opens a file to read and append to the file
+* "r"- to read the file and the file must exist.
+* "w"- creates a new file to write but if the file already exist then its contents are erased and it becomes empty to write into      it.
+* "a"-appends to the existing file or creates new file to write if it doesnot exist.
+* "r+"-opens the file to read and also write, file must exist.
+* "w+"- creates a new file to write as well as read.
+* "a+"-opens a file to read and append to the file
 
 4.Enumeration is the user defined data type which consists of integral constants. It is use to assign names to integral constants.
 ````
@@ -265,9 +265,9 @@ Example: A&B, A|B, ~A, A^B, A<<1, A>>1
 
 8.Variable parameters: Defining a function to take variable number of parameters instead of fixed pre-defined parameters. The function should be declared in stdarg.h header. This introduces va_list, a new type and three different functions va_start, va_arg and va_end to operate on elements of this va_list type.
 
-va_start()-initializes the list with total number of parameters
-va_arg()-accesses each parameter
-va_end()-cleans the memory assigned to the va_list
+* va_start()-initializes the list with total number of parameters
+* va_arg()-accesses each parameter
+* va_end()-cleans the memory assigned to the va_list
 
 Example: 
 ````
