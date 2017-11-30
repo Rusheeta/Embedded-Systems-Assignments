@@ -83,12 +83,12 @@ register int count;
 }
 ````
 
-6. while() loop: It is used when you want to execute the statements within the while loop only when the condition becomes true.
+6.while() loop: It is used when you want to execute the statements within the while loop only when the condition becomes true.
    
-   do while() loop: It is used when you want to execute the statements within the do while loop atleast once and later continue executing the statements only if the condition is true.
+  do while() loop: It is used when you want to execute the statements within the do while loop atleast once and later continue executing the statements only if the condition is true.
 
-7. malloc(): It is used to allocate memory dynamically. It allocates only single block of memory and takes only one argument.
-   calloc(): It is also used to allocate memory dynamically. It allocates multiple blocks of memory and takes two argument. Additionally it also initializes the memory to zero where as malloc doesn't.
+7.malloc(): It is used to allocate memory dynamically. It allocates only single block of memory and takes only one argument.
+  calloc(): It is also used to allocate memory dynamically. It allocates multiple blocks of memory and takes two argument.  Additionally it also initializes the memory to zero where as malloc doesn't.
 
 8.To create an integer array,as shown in the code below, user inputs the size of the array. Let that be 5 for suppose, then malloc creates 5*sizeof(int) that is 20 bytes of memory which sufficient to store 5 integers in an array. This is allocating memory dynamically.
 
@@ -157,9 +157,9 @@ Uses:
 1) It can be used for implementation of generic functions in c.
 2) malloc() and calloc() return void * type and this allows these functions to be used to allocate memory of any data type (just because of void *) 
 
-12. Modular programming: Modular programming is the process of subdividing a computer program into separate functional units called modules.
+12.Modular programming: Modular programming is the process of subdividing a computer program into separate functional units called modules.
 
-Structured Programming is also known as Modular Programming and a subset of procedural programming language.In Structured Programming, Programs are divided into small self contained functions.
+   Structured Programming: It is also known as Modular Programming and a subset of procedural programming language.In Structured Programming, Programs are divided into small self contained functions.
 
 13.Switch case statement is used to test a variable against a list of values and each value is a case and each case have statements to be executed. When the variable to be switched between values is equal to a particular value it executes that case statements. It also has an optional default case. The default case can be used for performing a task when none of the cases is true.
 Use: It is faster than a nested if else statements.
