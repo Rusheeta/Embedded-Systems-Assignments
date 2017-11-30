@@ -286,10 +286,10 @@ main()
 ```   
 int main(int argc, char *argv[]) 
 ```   
-  argc- argument count: number of command line arguments
-  argv[]-argument vector: this is an array of character pointers that points the list of arguments.
-   
-  If argc>0 then argv[0] is the name of the program and remaining elements are the command line arguments.
+* argc- argument count: number of command line arguments
+* argv[]-argument vector: this is an array of character pointers that points the list of arguments.
+
+If argc>0 then argv[0] is the name of the program and remaining elements are the command line arguments.
 
 Example:
 ````
