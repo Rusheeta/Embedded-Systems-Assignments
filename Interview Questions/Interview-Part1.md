@@ -3,30 +3,32 @@
 1.Scope of a variable: It is the visibility of the variables. Scope of the variable defines which part of the program can access those variables. Scope can be global or local. Variables with global scope are accessable to the entire program where as variables with local scope are accessable only within that particular block of code.
 
 2.Declaration: Declaring a variable indicates the type and size of the variable. It doesnot allocate any memory space.
-               
-               Example:
-                        int x; //x is a variable of type integer and has size 4 bytes
-
+ ````             
+  Example:
+  int x; //x is a variable of type integer and has size 4 bytes
+````
   Definition: Defining a variable declares the variable as well as initializes it to some value and also allocates a memory space.
-               
-               Example:
-                        int x = 10; //x is a variable of type integer and allocated memory storage and is initialized to value  10.
+ ````             
+  Example:
+  int x = 10; //x is a variable of type integer and allocated memory storage and is initialized to value  10.
+````
 
 3.Declaring an array: Indicates the type of the array and also the size of the array. Size of the array must be an integer greater than zero. Size of the array indicates the number of elements that particular array can hold where as for a variable size is not declared.
-
-              Example:  int array[10]; //array is of type integer with name 'array' and can hold 10 integer elements
-                        char word[20]; //array is of type character with name 'word' and can hold 20 characters
-                        int array;     //array is a single integer variable and not an array.
+````
+  Example:  int array[10]; //array is of type integer with name 'array' and can hold 10 integer elements
+            char word[20]; //array is of type character with name 'word' and can hold 20 characters
+            int array;     //array is a single integer variable and not an array.
+````
 
 4.If the array is declared locally it gets created on stack. If it gets created dynamically then it is created on heap.
 
 5.There are 4 storage class specifiers available in C language. They are,
 
    1)auto- all local variables are of auto storage class by default and their scope is only within the function.
-
-          int var; // by default, storage class is auto
-          auto int var;  
-
+````
+int var; // by default, storage class is auto
+auto int var;  
+````
    2)extern- It is used to give reference to a global variable to make it visible to all the program files previously defined. 
 ````
 /*First File:*/ 
