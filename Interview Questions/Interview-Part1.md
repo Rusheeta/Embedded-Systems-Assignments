@@ -1,6 +1,6 @@
 # Set-1 #
 
-1. Scope of a variable: It is the visibility of the variables. Scope of the variable defines which part of the program can access those variables. Scope can be global or local. Variables with global scope are accessable to the entire program where as variables with local scope are accessable only within that particular block of code.
+1.Scope of a variable: It is the visibility of the variables. Scope of the variable defines which part of the program can access those variables. Scope can be global or local. Variables with global scope are accessable to the entire program where as variables with local scope are accessable only within that particular block of code.
 
 2.Declaration: Declaring a variable indicates the type and size of the variable. It doesnot allocate any memory space.
                
@@ -18,7 +18,7 @@
                         char word[20]; //array is of type character with name 'word' and can hold 20 characters
                         int array;     //array is a single integer variable and not an array.
 
-4. If the array is declared locally it gets created on stack. If it gets created dynamically then it is created on heap.
+4.If the array is declared locally it gets created on stack. If it gets created dynamically then it is created on heap.
 
 5.There are 4 storage class specifiers available in C language. They are,
 
@@ -192,9 +192,9 @@ main()
      }
 ````
 
-# Set-1 #
+# Set-2 #
 
-1. The default case must be at the end of the switch statement and no break is needed in the default case whereas if the default case is put in between the other cases then it needs to have break statement otherwise the control jumps to the subsequent case and executes the statements till it reaches a break statement.
+1.The default case must be at the end of the switch statement and no break is needed in the default case whereas if the default case is put in between the other cases then it needs to have break statement otherwise the control jumps to the subsequent case and executes the statements till it reaches a break statement.
 
 2.While opening a file, the programmer has to give the filename and the operation to be performed.
 
@@ -223,9 +223,9 @@ enum weekdays{Mon,Tue,Wed,Thurs,Fri}
 enum weight{ rosy=42, rob=56, tom=67}
 ````
 
-5. If the first parameter of the fprintf() is replaced by stdout, it prints the output on the console instead of writing the output into the file.
+5.If the first parameter of the fprintf() is replaced by stdout, it prints the output on the console instead of writing the output into the file.
 
-6. Recursion is term used when a function calls itself. It is used to replace complex iterative code.
+6.Recursion is term used when a function calls itself. It is used to replace complex iterative code.
 ````
 #include<stdio.h>
 
@@ -282,13 +282,14 @@ main()
 }     
 ````
 
-9. Command line arguments are the arguments that are passed to the main function and the input is given from the command line.
-   int main(int argc, char *argv[]) 
+9.Command line arguments are the arguments that are passed to the main function and the input is given from the command line.
+```   
+int main(int argc, char *argv[]) 
+```   
+  argc- argument count: number of command line arguments
+  argv[]-argument vector: this is an array of character pointers that points the list of arguments.
    
-   argc- argument count: number of command line arguments
-   argv[]-argument vector: this is an array of character pointers that points the list of arguments.
-   
-   If argc>0 then argv[0] is the name of the program and remaining elements are the command line arguments.
+  If argc>0 then argv[0] is the name of the program and remaining elements are the command line arguments.
 
 Example:
 ````
@@ -314,7 +315,7 @@ int main(int argc, char *argv[])
 }
 ````
 
-10. The program can be compiled and executed without an error even with empty main() implementation. On execution, there would be no output. If the programmer wants the output with an empty main() then gcc __attributes__((constructors)) can be used which calls the functions before main().
+10.The program can be compiled and executed without an error even with empty main() implementation. On execution, there would be no output. If the programmer wants the output with an empty main() then gcc __attributes__((constructors)) can be used which calls the functions before main().
 ````
 #include<stdio.h>
 
@@ -338,13 +339,13 @@ main()
 }
 ````
 
-11. Structure is a user defined data type which holds a collection of values of different data types under a single name where as C is structured programming language as it can be divided into logical structures or functions or modules for easy understanding and implementation.
+11.Structure is a user defined data type which holds a collection of values of different data types under a single name where as C is structured programming language as it can be divided into logical structures or functions or modules for easy understanding and implementation.
 
-12. While declaring variables in a function, if static keyword is used then the value of the variables is retained between function calls, no matter how many times ever the function in which it is contained is called.
+12.While declaring variables in a function, if static keyword is used then the value of the variables is retained between function calls, no matter how many times ever the function in which it is contained is called.
 
-13. Double data type should be used to get accurate value while calculating the flight path.
+13.Double data type should be used to get accurate value while calculating the flight path.
 
-14. Advantages of linked lists over arrays:
+14.Advantages of linked lists over arrays:
 	1)Insertion/deletion is easy.
 	2)Dynamic size.
 	3)Linked list can hold different data types.    
