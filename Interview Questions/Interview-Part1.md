@@ -10,7 +10,7 @@
   Definition: Defining a variable declares the variable as well as initializes it to some value and also allocates a memory space.
                
                Example:
-                        int x = 10; //x is a variable of type integer and allocated memory storage and is initialized to value 10.
+                        int x = 10; //x is a variable of type integer and allocated memory storage and is initialized to value  10.
 
 3.Declaring an array: Indicates the type of the array and also the size of the array. Size of the array must be an integer greater than zero. Size of the array indicates the number of elements that particular array can hold where as for a variable size is not declared.
 
@@ -346,9 +346,9 @@ main()
 13.Double data type should be used to get accurate value while calculating the flight path.
 
 14.Advantages of linked lists over arrays:
-	1) Insertion/deletion is easy.
-	2) Dynamic size.
-	3) Linked list can hold different data types.    
+      > 1) Insertion/deletion is easy.
+      >	2) Dynamic size.
+      >	3) Linked list can hold different data types.    
 
 15.Actual parameters: Parameters which appear in the function calls.
    Formal Parameters: Parameters which appear in the function declarations.
